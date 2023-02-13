@@ -43,13 +43,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # local
+    'accounts.apps.AccountsConfig',
+    'pages.apps.PagesConfig',
+    'products.apps.ProductsConfig',
     # third party
     'crispy_forms',
     'allauth',
     'allauth.account',
-    # local
-    'accounts',
-    'pages',
 ]
 
 MIDDLEWARE = [
@@ -160,5 +161,5 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 
 # media files
-MEDIA_URL = '/media'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
