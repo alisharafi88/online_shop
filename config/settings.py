@@ -158,3 +158,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
+
+# media files
+MEDIA_URL = '/media'
+MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
