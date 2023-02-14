@@ -1,0 +1,36 @@
+{% extends '_base.html' %}
+
+{% block title %}
+	Product Detail
+{% endblock %}
+
+{% block content %}
+	<div class="d-flex justify-content-center">
+					<div class="row w-sm-75 w-100">
+						<div class="col-xs-12 col-md-3 d-flex justify-content-center">
+							<div>
+								{% if product.cover %}
+									<img class="shadow" src="{{ product.cover.url }}"
+									     class="img-fluid rounded-start" alt="...">
+								{% endif %}
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-6 text-center text-md-end mt-md-1 mt-4">
+							<h1>{{ product.title }}</h1>
+							<h5 class="small my-1"><span class="text-muted">نویسنده: </span>{{ product.author }}</h5>
+							<h5 class="small my-1"><span class="text-muted">سازنده: </span>{{ product.user.username }}</h5>
+						</div>
+						<div class="col-xs-12 col-md-3 d-flex flex-column">
+							<h3 class="align-self-center pt-2 text-muted align-self-md-end">
+								{{ product.price }} تومان
+							</h3>
+						</div>
+					</div>
+				</div>
+
+				<div class="d-flex justify-content-center">
+					<div class="my-3 p-5 w-sm-75 w-100">
+						{{ product.description|linebreaks }}
+					</div>
+				</div>
+{% endblock %}

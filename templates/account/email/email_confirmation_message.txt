@@ -1,0 +1,6 @@
+{{ TAG_START_SUBJECT }}
+{% autoescape off %}
+{% block subject %}
+{% endblock %}
+{% endautoescape %}
+{{ TAG_END_SUBJECT }}
