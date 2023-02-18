@@ -1,5 +1,5 @@
 {{ TAG_START_SUBJECT }}
-{% autoescape off %}
+{% autoescapeoff %}
 {% block subject %}
 {% endblock %}
 {% endautoescape %}
