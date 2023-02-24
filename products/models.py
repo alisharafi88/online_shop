@@ -31,7 +31,7 @@ class Comment(models.Model):
     ]
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments',)
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments',)
-    text = models.TextField()
+    text = models.TextField(verbose_name="متن")
     point = models.CharField(max_length=10, choices=POINT_CHOICES)
     active = models.BooleanField(default=True)
 
