@@ -4,6 +4,7 @@ from django.views import generic
 from .models import Product, Comment
 from .forms import CommentsForm
 
+
 class ProductListView(generic.ListView):
     queryset = Product.objects.filter(active=True)
     template_name = 'products/product_list.html'
