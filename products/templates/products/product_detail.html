@@ -30,8 +30,7 @@
 				<div class="row no-gutters mb--80">
 					<div class="col-12 col-sm-4 product-main-image d-flex align-content-center">
 						<img class="m-auto" style="max-height: 400px;"
-						     src="https://dkstatics-public.digikala.com/digikala-products/8f34ee9823202d09ee97deb9b1c8e3300a9a24d8_1643265727.jpg?x-oss-process=image/resize,w_1600/quality,q_80"
-						     alt="">
+						     src="{{ product.cover.url }}" alt="">
 					</div>
 					<div class="col-12 col-sm-8 product-main-details mt-md--50">
 						<div class="product-summary pl-lg--30 pl-md--0 text-right p-4">
@@ -44,18 +43,25 @@
 								<span class="price-separator">-</span>
 								<span class="money old-price text-danger">۲۱۰,۰۰۰ تومان</span>
 							</div>
-							<div class="product-action d-flex align-items-sm-center align-content-center mb--30">
-								<div class="quantity-wrapper d-flex justify-content-start">
-									<div class="quantity">
-										<input type="number" class="quantity-input" name="qty" id="qty" value="1"
-										       min="1">
+							<form action="{% url 'cart_add' product.id %}" method="POST">
+								{% csrf_token %}
+								{#								{{ cart_add.as_p }}#}
+								{#								<button type="submit">add</button>#}
+								<div class="product-action d-flex align-items-sm-center align-content-center mb--30">
+									<div class="quantity-wrapper d-flex justify-content-start">
+										<div class="quantity">
+											<input type="number" class="quantity-input" name="quantity" id="qty"
+											       value="1"
+											       min="1" max="30">
+										</div>
+										<button type="submit"
+										        class="btn btn-small btn-bg-red btn-color-white btn-hover-2">
+											{% trans 'add to cart' %}
+										</button>
 									</div>
 								</div>
-								<button type="button" class="btn btn-small btn-bg-red btn-color-white btn-hover-2"
-								        onclick="window.location.href='cart.html'">
-									{% trans 'add to cart' %}
-								</button>
-							</div>
+
+							</form>
 							<div class="product-footer-meta mt-5 pt-5">
 								<p><span class="m-0">دسته بندی ها:</span>
 									<a href="shop.html">لباس</a>,
@@ -121,14 +127,15 @@
 								<div class="tab-pane fade" id="nav-reviews" role="tabpanel"
 								     aria-labelledby="nav-reviews-tab">
 									<div class="product-reviews">
-										<h3 class="review__title">{{ product.comments.all|active_comments|length }} نظر برای {{ product.title }}</h3>
+										<h3 class="review__title">{{ product.comments.all|active_comments|length }} نظر
+											برای {{ product.title }}</h3>
 										<ul class="review__list">
 											{% for comment in product.comments.all|active_comments %}
 												<li class="review__item">
 													<div class="review__container">
 														<div class="review__text">
 															<div class="d-flex flex-sm-row flex-row">
-																<img src="{% static 'img/others/comment-1.jpg' %}"
+																<img src="{{ product.cover.url }}"
 																     alt="Review Avatar" class="review__avatar">
 																<div>
 																	<div class="review__meta">
@@ -159,16 +166,17 @@
 												<div class="col-lg-8 m-auto">
 													<span class="reply-title pull-right">{% trans 'write your comment!' %}</span>
 													<br>
-													{% if user.is_authenticated  %}
-													<form action="" method="post">
-														 {% csrf_token %}
-														{{ comment_form|crispy }}
-														<div class="form-row">
-															<div class="col-12">
-																<input type="submit" value="{% trans 'Submit' %}" class="btn-submit">
+													{% if user.is_authenticated %}
+														<form action="" method="post">
+															{% csrf_token %}
+															{{ comment_form|crispy }}
+															<div class="form-row">
+																<div class="col-12">
+																	<input type="submit" value="{% trans 'Submit' %}"
+																	       class="btn-submit">
+																</div>
 															</div>
-														</div>
-													</form>
+														</form>
 													{% endif %}
 													{#                                                        <form action="#" class="form text-right">#}
 													{#                                                            <div class="form-notes mb--20">#}

@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+from django.contrib.messages import constants as messages
 from pathlib import Path
 from environs import Env
 import django.core.mail.backends.console
@@ -172,3 +173,9 @@ ACCOUNT_UNIQUE_EMAIL = True
 # media files config
 MEDIA_URL = '/media/'
 MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
+
+# messages config
+MESSAGE_TAGS = {
+    messages.INFO: '',
+    50: 'critical',
+}

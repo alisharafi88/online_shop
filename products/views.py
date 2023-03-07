@@ -3,6 +3,7 @@ from django.views import generic
 
 from .models import Product, Comment
 from .forms import CommentsForm
+from cart.forms import AddToCartForm
 
 
 class ProductListView(generic.ListView):
@@ -20,6 +21,7 @@ class ProductDetailView(generic.DetailView):
         context = super().get_context_data(**kwargs)
         if self.request.user.is_authenticated:
             context['comment_form'] = CommentsForm()
+            context['cart_add']= AddToCartForm()
         return context
 
     def post(self, request, *args, **kwargs):
