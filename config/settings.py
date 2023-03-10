@@ -45,19 +45,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 
     # third party
     'allauth',
     'allauth.account',
     'rosetta',
     'jalali_date',
+    'crispy_forms',
+    'ckeditor',
 
     # local
     'accounts.apps.AccountsConfig',
     'pages.apps.PagesConfig',
     'products.apps.ProductsConfig',
     'cart.apps.CartConfig',
-    'crispy_forms',
+    'english_to_persian.apps.EnglishToPersianConfig',
 ]
 
 MIDDLEWARE = [
@@ -157,6 +160,7 @@ USE_TZ = True
 # static config
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

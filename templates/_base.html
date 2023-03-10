@@ -1,5 +1,7 @@
 {% load static %}
 {% load i18n %}
+
+{% load english_to_persian_number_tag %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
@@ -91,7 +93,7 @@
 							<li class="header-toolbar__item mini-cart-item">
 								<a href="#miniCart" class="header-toolbar__btn toolbar-btn mini-cart-btn">
 									<i class="flaticon flaticon-shopping-cart"></i>
-									<sup class="mini-cart-count">{{ cart|length }}</sup>
+									<sup class="mini-cart-count">{{ cart|length|translate }}</sup>
 								</a>
 							</li>
 							<li class="header-toolbar__item user-info">

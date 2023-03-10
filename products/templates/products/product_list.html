@@ -1,5 +1,8 @@
 {% extends '_base.html' %}
 
+{% load humanize %}
+{% load english_to_persian_number_tag %}
+
 {% block title %}
 	Products List
 {% endblock %}
@@ -53,7 +56,7 @@
 														<a href="{{ product.get_absolute_url }}">{{ product.title}}</a>
 													</h3>
 													<div class="product-price-wrapper mb--30">
-														<span class="money">{{product.price}} تومان</span>
+														<span class="money">{{product.price|intcomma:False|translate}} تومان</span>
 													</div>
 													<a href="{% url 'cart_add' product.id %}"
 													   class="btn btn-small btn-bg-sand btn-color-dark px-3">اضافه کردن
