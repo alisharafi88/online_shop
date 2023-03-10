@@ -19,7 +19,7 @@ class Cart:
         product_id = str(product.id)
 
         if product_id not in self.cart:
-            self.cart[product_id] = {'quantity': 1}
+            self.cart[product_id] = {'quantity': 0}
         if replace:
             self.cart[product_id]['quantity'] = quantity
         else:
@@ -52,7 +52,7 @@ class Cart:
             yield item
 
     def __len__(self):
-        return len(self.cart.keys())
+        return sum(item['quantity'] for item in self.cart.values())
 
     def clear(self):
         del self.session['cart']

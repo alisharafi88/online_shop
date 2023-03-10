@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from django.utils.translation import gettext as _
 
 from products.models import Product
 from .cart import Cart
@@ -34,6 +36,7 @@ def add_to_cart_view(request, product_id):
         inplace = cleaned_data['inplace']
         cart.add(product, quantity, inplace)
 
+    messages.success(request, _('your product added to cart successfully !'))
     return redirect('cart_details')
 
 
@@ -41,6 +44,8 @@ def remove_product_view(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     cart.remove(product)
+    messages.success(request, _('your product removed from cart successfully !'))
+
 
     return redirect('cart_details')
 

@@ -45,16 +45,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # third party
+    'allauth',
+    'allauth.account',
+    'rosetta',
+    'jalali_date',
+
     # local
     'accounts.apps.AccountsConfig',
     'pages.apps.PagesConfig',
     'products.apps.ProductsConfig',
     'cart.apps.CartConfig',
-    # third party
     'crispy_forms',
-    'allauth',
-    'allauth.account',
-    'rosetta',
 ]
 
 MIDDLEWARE = [
@@ -80,6 +83,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # custom
+                'cart.context_processors.cart',
             ],
         },
     },
@@ -131,13 +136,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
-
+# translation config
 LANGUAGE_CODE = 'fa'
 LANGUAGES = (
     ('en', 'English'),
     ('fa', 'Persian')
 )
-
 TIME_ZONE = 'Asia/Tehran'
 
 USE_I18N = True
@@ -145,12 +149,14 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 # static config
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -169,6 +175,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_LOGOUT_ON_GET = True
 
 # media files config
 MEDIA_URL = '/media/'
@@ -176,6 +183,9 @@ MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
 
 # messages config
 MESSAGE_TAGS = {
-    messages.INFO: '',
-    50: 'critical',
+        messages.DEBUG: 'alert-secondary',
+        messages.INFO: 'alert-info',
+        messages.SUCCESS: 'alert-success',
+        messages.WARNING: 'alert-warning',
+        messages.ERROR: 'alert-danger',
 }

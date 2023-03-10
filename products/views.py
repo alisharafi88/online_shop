@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.utils.translation import gettext as _
 from django.views import generic
 
 from .models import Product, Comment
@@ -31,4 +32,6 @@ class ProductDetailView(generic.DetailView):
             text=self.request.POST.get('text'),
         )
         new_comment.save()
+        messages.success(request, _('Yor comment added successfully !'))
+
         return self.get(self, request, *args, **kwargs)

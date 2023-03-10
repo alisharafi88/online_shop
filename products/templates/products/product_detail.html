@@ -164,9 +164,9 @@
 											<div class="row">
 												<div class="border-top py-5 w-100"></div>
 												<div class="col-lg-8 m-auto">
-													<span class="reply-title pull-right">{% trans 'write your comment!' %}</span>
-													<br>
 													{% if user.is_authenticated %}
+														<span class="reply-title pull-right">{% trans 'write your comment!' %}</span>
+														<br>
 														<form action="" method="post">
 															{% csrf_token %}
 															{{ comment_form|crispy }}
@@ -177,6 +177,14 @@
 																</div>
 															</div>
 														</form>
+													{% else %}
+														<span class="reply-title pull-right small">{% trans 'if you want to share your comments,at first please Sign Up or Login! ' %}</span>
+														<br>
+														<a
+																href="{% url 'account_signup' %}">{% trans 'Signin' %}</a>|
+
+														<a
+																href="{% url 'account_login' %}">{% trans 'Login' %}</a>
 													{% endif %}
 													{#                                                        <form action="#" class="form text-right">#}
 													{#                                                            <div class="form-notes mb--20">#}
@@ -215,5 +223,6 @@
 		</div>
 	</div>
 	<!-- Main Content Wrapper End -->
+	{% include 'cart/cart_sidebar.html' %}
 
 {% endblock %}
