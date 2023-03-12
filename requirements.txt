@@ -1,8 +1,3 @@
-failed to get console mode for stdout: The handle is invalid.
-failed to get console mode for stdout: The handle is invalid.
-[1A[1B[0G[?25l[+] Running 1/0
- - Container online_shop-db-1  Running 0.0s
-[?25hfailed to get console mode for stdout: The handle is invalid.
 asgiref==3.6.0
 beautifulsoup4==4.11.2
 certifi==2022.12.7
@@ -16,8 +11,10 @@ Django==4.1.7
 django-allauth==0.52.0
 django-bootstrap-v5==1.0.11
 django-cache-url==3.4.4
+django-ckeditor==6.5.1
 django-crispy-forms==1.14.0
 django-jalali-date==1.0.1
+django-js-asset==2.0.0
 django-rosetta==0.9.8
 environs==9.5.0
 idna==3.4
