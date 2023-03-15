@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'products.apps.ProductsConfig',
     'cart.apps.CartConfig',
     'english_to_persian.apps.EnglishToPersianConfig',
+    'orders.apps.OrdersConfig'
 ]
 
 MIDDLEWARE = [
