@@ -48,8 +48,6 @@
 							</div>
 							<form action="{% url 'cart_add' product.id %}" method="POST">
 								{% csrf_token %}
-								{#								{{ cart_add.as_p }}#}
-								{#								<button type="submit">add</button>#}
 								<div class="product-action d-flex align-items-sm-center align-content-center mb--30">
 									<div class="quantity-wrapper d-flex justify-content-start">
 										<div class="quantity">

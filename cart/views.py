@@ -37,7 +37,7 @@ def add_to_cart_view(request, product_id):
         cart.add(product, quantity, inplace)
 
     messages.success(request, _('your product added to cart successfully !'))
-    return redirect('cart_details')
+    return redirect('products_list')
 
 
 def remove_product_view(request, product_id):
@@ -52,6 +52,11 @@ def remove_product_view(request, product_id):
 
 def clear_cart_view(request):
     cart = Cart(request)
-    cart.clear()
+    if len(cart):
+        cart.clear()
+        messages.success(request, _('Now your cart is empty.'))
+        return redirect('products_list')
+    messages.error(request, _('Nothing to clear!'))
     return redirect('products_list')
+
 
