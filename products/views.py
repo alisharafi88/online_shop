@@ -26,7 +26,7 @@ class ProductDetailView(generic.DetailView):
         return context
 
     def post(self, request, *args, **kwargs):
-        new_comment = Comment(
+        new_comment = Comment.objects.create(
             product=self.get_object(),
             user=self.request.user,
             text=self.request.POST.get('text'),
