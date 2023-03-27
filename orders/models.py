@@ -22,6 +22,9 @@ class Order(models.Model):
     def __str__(self):
         return f'Order {self.id}'
 
+    def get_total_price(self):
+        return sum(item.quantity * item.price for item in self.item.all())
+
     # def get_total_price(self):
     #     return sum(item.quantity * item.price for item in self.items.all())
 
