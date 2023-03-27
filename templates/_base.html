@@ -86,8 +86,10 @@
 					<div class="col-xl-3 col-lg-4 col-sm-7 col-12 p-0">
 						<ul class="header-toolbar">
 							<li class="header-toolbar__item">
-								<a href="wishlist.html" class="header-toolbar__btn mx-4">
+								<a href="{% url 'favorite' %}" class="header-toolbar__btn mx-4 mini-cart-btn">
 									<i class="flaticon flaticon-like"></i>
+									<sup class="mini-cart-count">{{ favorite|length|translate }}</sup>
+
 								</a>
 							</li>
 							<li class="header-toolbar__item mini-cart-item">
@@ -103,14 +105,17 @@
 								<ul class="user-info-menu">
 									{% if user.is_authenticated %}
 										<li>
-										<a class="text-right" href="{% url 'account_logout' %}">{% trans 'Logout' %}</a>
+											<a class="text-right"
+											   href="{% url 'account_logout' %}">{% trans 'Logout' %}</a>
 										</li>
-										{% else %}
+									{% else %}
 										<li>
-										<a class="text-right" href="{% url 'account_login' %}">{% trans 'Login' %}</a>
+											<a class="text-right"
+											   href="{% url 'account_login' %}">{% trans 'Login' %}</a>
 										</li>
 										<li>
-										<a class="text-right" href="{% url 'account_signup' %}">{% trans 'Signup' %}</a>
+											<a class="text-right"
+											   href="{% url 'account_signup' %}">{% trans 'Signup' %}</a>
 										</li>
 									{% endif %}
 									<li>

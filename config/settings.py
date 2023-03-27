@@ -62,7 +62,8 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'english_to_persian.apps.EnglishToPersianConfig',
     'orders.apps.OrdersConfig',
-    'payments.apps.PaymentsConfig'
+    'payments.apps.PaymentsConfig',
+    'favorites.apps.FavoritesConfig',
 ]
 
 MIDDLEWARE = [
@@ -90,6 +91,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 # custom
                 'cart.context_processors.cart',
+                'favorites.context_processors.favorite'
             ],
         },
     },
