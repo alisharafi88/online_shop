@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.utils.translation import gettext as _
 
@@ -37,7 +38,7 @@ def add_to_cart_view(request, product_id):
         cart.add(product, quantity, inplace)
 
     messages.success(request, _('your product added to cart successfully !'))
-    return redirect('products_list')
+    return HttpResponseRedirect(reverse("product_detail", args=(product_id,)))
 
 
 def remove_product_view(request, product_id):
