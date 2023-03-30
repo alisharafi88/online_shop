@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-09 19:15+0330\n"
+"POT-Creation-Date: 2023-03-30 18:05+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,18 +17,66 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-#: .\cart\templates\cart\cart.html:8 .\cart\templates\cart\cart.html:18
+
+#: .\cart\templates\cart\cart.html:10 .\cart\templates\cart\cart.html:20
+#: .\cart\templates\cart\cart_sidebar.html:9
 msgid "Cart"
 msgstr "سبد خرید"
 
-#: .\cart\templates\cart\cart.html:98
+#: .\cart\templates\cart\cart.html:104
 msgid "clear cart"
 msgstr "خالی کردن سبد خرید"
 
-#: .\cart\views.py:39
+#: .\cart\templates\cart\cart.html:109
+msgid "Your cart is empty!"
+msgstr ""
+
+#: .\cart\templates\cart\cart.html:112
+msgid "Lets buy somthing"
+msgstr ""
+
+#: .\cart\templates\cart\cart.html:122
+msgid "Sum"
+msgstr ""
+
+#: .\cart\templates\cart\cart.html:134
+msgid "Total"
+msgstr ""
+
+#: .\cart\templates\cart\cart.html:138
+#: .\cart\templates\cart\cart_sidebar.html:27
+#: .\cart\templates\cart\cart_sidebar.html:36
+msgid "$"
+msgstr ""
+
+#: .\cart\templates\cart\cart.html:146
+msgid "Check Out"
+msgstr ""
+
+#: .\cart\templates\cart\cart_sidebar.html:35
+msgid "Total price"
+msgstr ""
+
+#: .\cart\templates\cart\cart_sidebar.html:39
+msgid "go to cart"
+msgstr ""
+
+#: .\cart\templates\cart\cart_sidebar.html:41
+msgid "checkout"
+msgstr ""
+
+#: .\cart\views.py:40
 msgid "your product added to cart successfully !"
 msgstr "محصول شما با موفقیت به سبد خرید اضافه شد!"
 
-#: .\cart\views.py:47
+#: .\cart\views.py:48
 msgid "your product removed from cart successfully !"
 msgstr "محصول شما با موفقیت از سبد خرید حذف شد!"
+
+#: .\cart\views.py:58
+msgid "Now your cart is empty."
+msgstr ""
+
+#: .\cart\views.py:60
+msgid "Nothing to clear!"
+msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-09 19:15+0330\n"
+"POT-Creation-Date: 2023-03-30 18:06+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,54 +18,71 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\products\models.py:26
+#: .\models.py:28
 msgid "very bad"
 msgstr "خیلی بد"
 
-#: .\products\models.py:27
+#: .\models.py:29
 msgid "bad"
 msgstr "بد"
 
-#: .\products\models.py:28
+#: .\models.py:30
 msgid "normal"
 msgstr "معمولی"
 
-#: .\products\models.py:29
+#: .\models.py:31
 msgid "good"
 msgstr "خوب"
 
-#: .\products\models.py:30
+#: .\models.py:32
 msgid "very good"
 msgstr "خیلی خوب"
 
-#: .\products\models.py:35
+#: .\models.py:37
 msgid "text"
 msgstr "متن"
 
-#: .\products\models.py:36
+#: .\models.py:38
 msgid "point"
 msgstr "امتیاز"
 
-#: .\products\templates\products\product_detail.html:18
+#: .\templates\products\product_detail.html:21
 msgid "Product details of"
 msgstr "توضیحات محصولات"
 
-#: .\products\templates\products\product_detail.html:59
+#: .\templates\products\product_detail.html:60
+#: .\templates\products\product_list.html:72
 msgid "add to cart"
 msgstr "اضافه کردن به سبد خرید"
 
-#: .\products\templates\products\product_detail.html:82
+#: .\templates\products\product_detail.html:83
 msgid "product descriptions"
 msgstr "توضیحات محصول"
 
-#: .\products\templates\products\product_detail.html:167
+#: .\templates\products\product_detail.html:169
 msgid "write your comment!"
 msgstr "نظر خود را بنویسید!"
 
-#: .\products\templates\products\product_detail.html:175
+#: .\templates\products\product_detail.html:176
 msgid "Submit"
 msgstr "ارسال"
 
-#: .\products\views.py:35
+#: .\templates\products\product_detail.html:182
+msgid "if you want to share your comments,at first please Sign Up or Login! "
+msgstr "اگر قصد کامنت گزاشتن دارید،اول برای خود حساب بسازید یا وارد حساب خود شوید!"
+
+#: .\templates\products\product_detail.html:185
+msgid "Signin"
+msgstr "ساخت حساب "
+
+#: .\templates\products\product_detail.html:188
+msgid "Login"
+msgstr "ورود"
+
+#: .\templates\products\product_list.html:25
+msgid "Of"
+msgstr "از"
+
+#: .\views.py:36
 msgid "Yor comment added successfully !"
 msgstr "نظر شما با موفقیت اضافه شد!"

@@ -1,3 +1,5 @@
+import copy
+
 from products.models import Product
 
 
@@ -26,7 +28,7 @@ class Favorite:
     def __iter__(self):
         favorite_ids = self.favorite.keys()
         products = Product.objects.filter(id__in=favorite_ids)
-        favorite = self.favorite.copy()
+        favorite = copy.deepcopy(self.favorite)
 
         for product in products:
             favorite[str(product.id)]['product_obj'] = product
