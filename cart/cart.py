@@ -1,3 +1,5 @@
+import copy
+
 from products.models import Product
 
 
@@ -43,7 +45,7 @@ class Cart:
 
         products = Product.objects.filter(id__in=products_ids)
 
-        cart = self.cart.copy()
+        cart = copy.deepcopy(self.cart)
 
         for product in products:
             cart[str(product.id)]['product_obj'] = product
@@ -58,7 +60,9 @@ class Cart:
         del self.session['cart']
         self.save()
 
+    # def get_total_price(self):
+    #     product_ids = self.cart.keys()
+    #
+    #     return sum(item['quantity'] * item['product_obj'].price for item in self.cart.values())
     def get_total_price(self):
-        product_ids = self.cart.keys()
-
-        return sum(item['quantity'] * item['product_obj'].price for item in self.cart.values())
+        return sum(item['quantity'] * item['product_obj'].price for item in self)
