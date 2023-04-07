@@ -10,7 +10,7 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="d-flex justify-content-between align-items-center flex-sm-row flex-column">
-						<h1 class="page-title">پروفایل کاربری</h1>
+						<h1 class="page-title">{% translate 'Wish List' %}</h1>
 					</div>
 				</div>
 			</div>
@@ -18,35 +18,60 @@
 	</div>
 	<!-- Breadcrumb area End -->
 
-	<div class="table-content table-responsive">
-		<table class="table text-center">
-			<thead>
-				<tr>
-					<th>شماره</th>
-					<th>{% translate 'Delete' %}</th>
-					<th>نام محصول</th>
-	{#				<th>تاریخ علاقه مندی</th>#}
-	{#				<th>عملیات</th>#}
-				</tr>
-			</thead>
-			<tbody>
-				{% for item in favorite %}
-					<tr>
-						<td>1
-						</td>
-						<td class="product-remove text"><a
-								href="{% url 'remove_favorite' item.product_obj.id %}"><i
-								class="flaticon flaticon-cross"></i></a>
-						</td>
-						<td>{{ item.product_obj.title }}
-						</td>
-						{#				<td class="wide-column">۲ شهریور ۱۴۰۲</td>#}
-						<td><a href="{% url 'product_detail' item.product_obj.id %}"
-						       class="btn btn-small btn-bg-red btn-color-white btn-hover-2">نمایش</a></td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
+<div class="main-content-wrapper">
+	<div class="page-content-inner ptb--80">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mb-md--50">
+					<div class="row no-gutters">
+						<div class="col-12">
+							<div class="table-content table-responsive">
+								<table class="table text-center main-content-wrapper">
+									<thead>
+									{% if favorite|length %}
+										<tr>
+											<th>شماره</th>
+											<th>{% translate 'Delete' %}</th>
+											<th>نام محصول</th>
+											{#				<th>تاریخ علاقه مندی</th>#}
+											{#				<th>عملیات</th>#}
+										</tr>
+									{% else %}
+										<div class="row no-gutters border-top pt--20 mt--20">
+											<div class="col-sm-6 text-sm-right">
+												<span class="col-sm-6 text-sm-right">{% translate 'Your Wish list is empty!' %}
+												</span>
+												<br>
+												<a type="submit" class="cart-form__btn col-sm-6 text-sm-right" href="{% url 'products_list' %}">{% translate 'Favorite List' %}
+												</a>
+											</div>
+										</div>
+									{% endif %}
+									</thead>
+									<tbody>
+									{% for item in favorite %}
+										<tr>
+											<td>1
+											</td>
+											<td class="product-remove text"><a
+													href="{% url 'remove_favorite' item.product_obj.id %}"><i
+													class="flaticon flaticon-cross"></i></a>
+											</td>
+											<td>{{ item.product_obj.title }}
+											</td>
+											{#				<td class="wide-column">۲ شهریور ۱۴۰۲</td>#}
+											<td><a href="{% url 'product_detail' item.product_obj.id %}"
+											       class="btn btn-small btn-bg-red btn-color-white btn-hover-2">نمایش</a></td>
+										</tr>
+									{% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-
+</div>
 {% endblock %}
