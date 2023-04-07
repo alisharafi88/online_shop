@@ -21,4 +21,6 @@ def remove_favorite_view(request, product_id):
     favorite = Favorite(request)
     product = get_object_or_404(Product, id=product_id)
     favorite.remove(product)
+    if len(favorite):
+        return redirect('favorite')
     return redirect('products_list')
