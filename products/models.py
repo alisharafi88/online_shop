@@ -11,7 +11,7 @@ class Product(models.Model):
     short_description = models.TextField(blank=True)
     price = models.PositiveIntegerField(default=0)
     active = models.BooleanField(default=True)
-    cover = models.ImageField(upload_to='covers')
+    cover = models.ImageField(upload_to='covers', blank=True)
 
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
