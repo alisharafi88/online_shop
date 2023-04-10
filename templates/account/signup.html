@@ -1,0 +1,49 @@
+{% extends '_base.html' %}
+{% load crispy_forms_filters %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block title %}
+	Sing Up
+{% endblock %}
+
+{% block content %}
+	<!-- Breadcrumb area Start -->
+	<div class="breadcrumb-area bg-color ptb--90" data-bg-color="#f6f6f6">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="d-flex justify-content-between align-items-center flex-sm-row flex-column">
+						<h1 class="page-title"> {% translate 'Signup' %} </h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Breadcrumb area End -->
+
+	<div class="main-content-wrapper">
+		<div class="page-content-inner pt--75 pb--80">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="register-box">
+							<h4 class="heading__tertiary mb--30">ثبت نام</h4>
+							<form class="form form--login" id="signup_form" method="post"
+							      action="{% url 'account_signup' %}">
+								{% csrf_token %}
+								{{ form|crispy }}
+								{% if redirect_field_value %}
+									<input type="hidden" name="{{ redirect_field_name }}"
+									       value="{{ redirect_field_value }}"/>
+								{% endif %}
+								<div class="form__group">
+									<button class="btn-submit" type="submit">{% trans "Sign In" %}</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
